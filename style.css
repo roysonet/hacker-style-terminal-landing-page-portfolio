@@ -1,0 +1,255 @@
+body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #111;
+      color: #0f0;
+      font-family: monospace;
+      font-size: 16px;
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .name {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: inherit; /* Inherit the body's color */
+      font-family: monospace;
+      font-size: 1.5em;
+      z-index: 3;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #0f0;
+      animation: typing 2s steps(15, end) forwards, blink-caret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 10ch;
+      }
+    }
+
+    @keyframes blink-caret {
+      from, to {
+        border-color: transparent
+      }
+      50% {
+        border-color: #0f0;
+      }
+    }
+
+    #canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .content {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #0f0;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #0f0;
+      color: #111;
+      border: none;
+      padding: 10px 20px;
+      font-family: monospace;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00ff00;
+    }
+
+    .terminal {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 80%;
+      height: 60%;
+      background-color: #222;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      display: none;
+      z-index: 2;
+      flex-direction: column;
+      min-width: 200px;
+      min-height: 150px;
+    }
+
+    .terminal-header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      cursor: move;
+    }
+
+    .terminal-buttons {
+      display: flex;
+    }
+
+    .terminal-button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .terminal-button.close {
+      background-color: #f00;
+    }
+
+    .terminal-button.minimize {
+      background-color: #ff0;
+    }
+
+    .terminal-button.maximize {
+      background-color: #0f0;
+    }
+
+    .terminal-body {
+      padding: 10px;
+      overflow-y: auto;
+      height: 100%;
+    }
+
+    .terminal-line {
+      margin: 5px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .terminal-prompt {
+      color: #0f0;
+      margin-right: 5px;
+    }
+
+    .terminal-input-container {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-top: 1px solid #333;
+    }
+
+    .terminal-input {
+      color: #fff;
+      flex-grow: 1;
+      outline: none;
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-family: monospace;
+      font-size: 16px;
+      caret-color: #0f0;
+    }
+
+    .terminal-resize-handle {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      background-color: #444;
+      cursor: se-resize;
+      border-radius: 0 0 5px 0;
+    }
+
+    .new-terminal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 70%;
+      background-color: #222;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      z-index: 10;
+      display: none;
+      min-width: 200px;
+      min-height: 150px;
+    }
+
+    .new-terminal-header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      cursor: move;
+    }
+
+    .new-terminal-buttons {
+      display: flex;
+    }
+
+    .new-terminal-button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .new-terminal-button.close {
+      background-color: #f00;
+    }
+
+    .new-terminal-body {
+      padding: 10px;
+      overflow-y: auto;
+      height: calc(100% - 40px);
+    }
+
+    .new-terminal-close {
+      cursor: pointer;
+    }
+
+    .new-terminal-resize-handle {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      background-color: #444;
+      cursor: se-resize;
+      border-radius: 0 0 5px 0;
+    }

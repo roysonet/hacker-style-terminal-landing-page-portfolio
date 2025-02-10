@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Hacker Landing Page</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <div class="container">
+        <canvas id="canvas"></canvas>
+        <div class="content">
+          <h1>ACCESS GRANTED</h1>
+          <p>Initiating system diagnostics...</p>
+          <button id="startButton">START</button>
+        </div>
+        <div class="terminal" id="terminal">
+          <div class="terminal-header" id="terminalHeader">
+            <div class="terminal-buttons">
+              <span class="terminal-button close" id="closeTerminalButton"></span>
+              <span class="terminal-button minimize"></span>
+              <span class="terminal-button maximize"></span>
+            </div>
+            Terminal
+          </div>
+          <div class="terminal-body" id="terminalBody">
+          </div>
+          <div class="terminal-input-container">
+            <span class="terminal-prompt">user@portfolio:~$</span>
+            <span class="terminal-input" id="terminalInput" contenteditable="true"></span>
+          </div>
+          <div class="terminal-resize-handle" id="terminalResizeHandle"></div>
+        </div>
+      </div>
+      <script type="module" src="script.js"></script>
+    </body>
+    </html>
